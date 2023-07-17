@@ -12,9 +12,41 @@ const Currency = sequelize.define("currency", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  Price: {
+  Description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  Image: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  Price: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  Continent: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Country: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Status: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Type: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    defaultValue: 1,
+  },
+  bestSeller: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
   },
 });
 
@@ -27,4 +59,4 @@ sequelize
     console.error("Unable to create table : ", error);
   });
 
-module.exports = User;
+module.exports = Currency;

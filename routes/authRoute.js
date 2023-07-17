@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const { userValidationRules, validate } = require("../middleware/validation");
 const {
   userSignIn,
   userLogIn,
   findOneUser,
-  updateUser
+  updateUser,
 } = require("../controller/auth/authController");
 
-router.post("/signin", (req, res) => {
+router.post("/signin", userValidationRules(), validate, (req, res) => {
   userSignIn(req, res, req.body);
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", userValidationRules(), validate, (req, res) => {
   userLogIn(req, res, req.body);
 });
 
